@@ -6,6 +6,8 @@ type Todo = {
   completed: boolean
 }
 
+/* This is the main to-do list file */
+
 export default function Home() {
   const [todos, setTodos] = useState<Todo[]>([])
   const [task, setTask] = useState<string>('')
