@@ -41,7 +41,7 @@ export default function Home() {
     }
   }
 
-  // Toggle completed
+  
   const toggleTodo = async (id: number | string, completed: boolean) => {
     await fetch(`/api/todos/${id}`, {
       method: 'PUT',
