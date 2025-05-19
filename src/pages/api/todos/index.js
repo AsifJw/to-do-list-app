@@ -11,13 +11,21 @@ export default async function handler(req, res) {
     res.status(200).json(data)
   }
   if (req.method === 'POST') {
+    console.log('POST request received', req.body)
     const { task } = req.body
-    if (!task) return res.status(400).json({ error: 'Task is required' })
+    if (!task) {
+      console.log('No task provided!')
+      return res.status(400).json({ error: 'Task is required' })
+    }
     const { data, error } = await supabase
       .from('todos')
       .insert([{ task, completed: false }])
       .select()
-    if (error) return res.status(500).json({ error: error.message })
+    if (error) {
+      console.log('DB Error:', error)
+      return res.status(500).json({ error: error.message })
+    }
     res.status(201).json(data[0])
   }
+  
 }
