@@ -13,7 +13,7 @@ export default function Home() {
   const [task, setTask] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(true)
 
-  // Fetch todos from API
+  
   const fetchTodos = async () => {
     setLoading(true)
     const res = await fetch('/api/todos')
