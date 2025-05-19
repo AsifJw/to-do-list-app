@@ -1,5 +1,5 @@
 import { supabase } from '../../../lib/supabaseClient'
-
+/* Supabase */
 export default async function handler(req, res) {
   const { id } = req.query
   if (req.method === 'PUT') {
